@@ -1,5 +1,17 @@
-20:33:33.284 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 0
-20:33:35.299 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 1
-20:33:37.309 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 2
-20:33:39.312 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 3
-20:33:41.322 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 4
+18:08:52.534 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Starting calculations
+18:08:52.534 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 1
+18:08:52.534 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.calculator.ItemCalculator - Processing item 1
+18:08:52.535 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 2
+18:08:52.535 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.calculator.ItemCalculator - Processing item 2
+18:08:52.535 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 3
+18:08:52.535 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.calculator.ItemCalculator - Processing item 3
+18:08:52.535 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 4
+18:08:52.536 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.calculator.ItemCalculator - Processing item 4
+18:08:52.536 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 5
+18:08:52.536 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 6
+18:08:52.536 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.calculator.ItemCalculator - Processing item 5
+18:08:52.536 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 7
+18:08:52.536 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Finished calculations
+18:08:52.536 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 8
+18:08:52.536 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 9
+18:08:52.537 [ForkJoinPool.commonPool-worker-1] INFO  c.e.s.calculator.ItemCalculator - Processing item 10

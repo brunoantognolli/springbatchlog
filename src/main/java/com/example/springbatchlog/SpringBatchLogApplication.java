@@ -25,6 +25,9 @@ public class SpringBatchLogApplication {
     @Autowired
     private Job job2;
 
+    @Autowired
+    private ApplicationLogger applicationLogger;
+
     public static void main(String[] args) {
         SpringApplication.run(SpringBatchLogApplication.class, args);
     }
@@ -32,6 +35,8 @@ public class SpringBatchLogApplication {
     @Bean
     public CommandLineRunner commandLineRunner() {
         return args -> {
+            applicationLogger.logApplicationStart();
+
             // Create unique job parameters for each run
             JobParameters jobParameters1 = new JobParametersBuilder()
                     .addDate("date", new Date())
@@ -46,22 +51,28 @@ public class SpringBatchLogApplication {
             // Launch jobs in parallel using CompletableFuture
             CompletableFuture<Void> future1 = CompletableFuture.runAsync(() -> {
                 try {
+                    applicationLogger.logJobStart("job1");
                     jobLauncher.run(job1, jobParameters1);
+                    applicationLogger.logJobEnd("job1");
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    applicationLogger.logError("job1", e);
                 }
             });
 
             CompletableFuture<Void> future2 = CompletableFuture.runAsync(() -> {
                 try {
+                    applicationLogger.logJobStart("job2");
                     jobLauncher.run(job2, jobParameters2);
+                    applicationLogger.logJobEnd("job2");
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    applicationLogger.logError("job2", e);
                 }
             });
 
             // Wait for both jobs to complete
             CompletableFuture.allOf(future1, future2).join();
+            
+            applicationLogger.logApplicationEnd();
         };
     }
 } 
