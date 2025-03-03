@@ -1,0 +1,5 @@
+20:33:33.284 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 0
+20:33:35.299 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 1
+20:33:37.309 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 2
+20:33:39.312 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 3
+20:33:41.322 [ForkJoinPool.commonPool-worker-2] INFO  c.e.s.job2.Job2Configuration - Job2 - Processing item 4

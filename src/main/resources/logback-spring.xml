@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console Appender -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Job1 File Appender -->
+    <appender name="Job1File" class="ch.qos.logback.core.FileAppender">
+        <file>logs/process1.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Job2 File Appender -->
+    <appender name="Job2File" class="ch.qos.logback.core.FileAppender">
+        <file>logs/process2.log</file>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger for Job1 -->
+    <logger name="com.example.springbatchlog.job1" level="INFO" additivity="false">
+        <appender-ref ref="Job1File" />
+        <appender-ref ref="Console" />
+    </logger>
+
+    <!-- Logger for Job2 -->
+    <logger name="com.example.springbatchlog.job2" level="INFO" additivity="false">
+        <appender-ref ref="Job2File" />
+        <appender-ref ref="Console" />
+    </logger>
+
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="Console" />
+    </root>
+</configuration> 
