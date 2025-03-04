@@ -11,7 +11,7 @@ import com.example.springbatchlog.logging.JobLogging;
 public class ItemCalculator {
     private static final Logger logger = LoggerFactory.getLogger(ItemCalculator.class);
 
-    @JobLogging
+    @JobLogging("Processing batch of items BFA")
     public void processItems(int start, int end, StepContribution contribution, ChunkContext chunkContext) {
         logger.info("Starting processing items from {} to {}", start, end);
         

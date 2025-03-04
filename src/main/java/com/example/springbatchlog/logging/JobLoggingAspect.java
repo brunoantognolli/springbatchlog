@@ -17,8 +17,8 @@ import java.util.Map;
 public class JobLoggingAspect {
     private static final Logger logger = LoggerFactory.getLogger(JobLoggingAspect.class);
 
-    @Around("@annotation(JobLogging)")
-    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
+    @Around("@annotation(jobLogging)")
+    public Object around(ProceedingJoinPoint joinPoint, JobLogging jobLogging) throws Throwable {
         Map<String, String> contextMap = new HashMap<>();
         
         try {
@@ -38,8 +38,11 @@ public class JobLoggingAspect {
                     // Put all context values into MDC
                     contextMap.forEach(MDC::put);
 
-                    logger.debug("Started job execution - Job: {}, Step: {}, Thread: {}", 
-                              jobName, stepName, threadName);
+                    // Use the custom message if provided
+                    String message = jobLogging.value().isEmpty() ? 
+                        "Job execution" : jobLogging.value();
+                    logger.debug("{} - Job: {}, Step: {}, Thread: {}", 
+                              message, jobName, stepName, threadName);
                     break;
                 }
             }
