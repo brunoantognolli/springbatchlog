@@ -22,15 +22,34 @@ repositories {
 }
 
 dependencies {
+	// Exclude all logging from Spring Boot starters
 	implementation('org.springframework.boot:spring-boot-starter-batch') {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+		exclude group: 'ch.qos.logback', module: 'logback-classic'
 	}
-	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
-	implementation 'org.slf4j:slf4j-api'
+	implementation('org.springframework.boot:spring-boot-starter-aop') {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+		exclude group: 'ch.qos.logback', module: 'logback-classic'
+	}
+	
+	// Log4j2 dependencies
+	implementation 'org.apache.logging.log4j:log4j-api:2.22.1'
+	implementation 'org.apache.logging.log4j:log4j-core:2.22.1'
+	implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.22.1'
+	implementation 'org.slf4j:slf4j-api:2.0.11'
+	
 	implementation 'com.h2database:h2'
 	implementation 'org.codehaus.janino:janino:3.1.12'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.batch:spring-batch-test'
+	
+	// Exclude logging from test dependencies
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+		exclude group: 'ch.qos.logback', module: 'logback-classic'
+	}
+	testImplementation('org.springframework.batch:spring-batch-test') {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+		exclude group: 'ch.qos.logback', module: 'logback-classic'
+	}
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
