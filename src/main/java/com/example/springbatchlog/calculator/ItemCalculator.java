@@ -7,6 +7,7 @@ import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.stereotype.Component;
 import com.example.springbatchlog.logging.JobLogging;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.example.springbatchlog.service.AnotherService;
 
 @Component
 public class ItemCalculator {

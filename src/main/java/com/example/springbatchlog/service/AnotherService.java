@@ -1,4 +1,4 @@
-package com.example.springbatchlog.calculator;
+package com.example.springbatchlog.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +10,6 @@ public class AnotherService {
 
     public void doSomething(int start, int end) {
         // This log will include the job context from MDC
-        logger.info("Doing something with items {} to {}", start, end);
+        logger.info("Doing something with item {} to {}", start, end);
     }
 } 
