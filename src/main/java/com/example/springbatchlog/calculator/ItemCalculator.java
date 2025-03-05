@@ -6,10 +6,14 @@ import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.stereotype.Component;
 import com.example.springbatchlog.logging.JobLogging;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class ItemCalculator {
     private static final Logger logger = LoggerFactory.getLogger(ItemCalculator.class);
+
+    @Autowired
+    private AnotherService anotherService;
 
     @JobLogging("Processing batch of items BFA")
     public void processItems(int start, int end, StepContribution contribution, ChunkContext chunkContext) {
@@ -18,7 +22,11 @@ public class ItemCalculator {
         for (int i = start; i <= end; i++) {
             logger.info("Processing item {}", i);
         }
+
+        // This method will inherit the MDC context
+        anotherService.doSomething(start, end);
+
         
         logger.info("Completed processing items from {} to {}", start, end);
     }
-} 
+}
